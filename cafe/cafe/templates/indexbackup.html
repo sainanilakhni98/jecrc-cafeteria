@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #logo-img {
+            width: 90px;
+            height: 90px;
+            background-size: 105px 105px;
+            margin: 10px 15px 10px 0px;
+            border-radius: 1100px;
+            border: 3px solid green;
+
+        }
+
+        .navbar-brand h1 {
+            font-family: 'lora', serif;
+            color: #557c3e;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #222;
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: .75;
+            padding-top: 10px;
+        }
+
+        #nav-list {
+            margin-top: 10px;
+        }
+
+        #nav-list a {
+            color: #951C49;
+            text-align: center;
+            font-size: 1.2em;
+            margin-right: 18px;
+        }
+
+        #nav-list a:hover,
+        #nav-list li:hover {
+            background-color: #E7E7E7;
+        }
+
+        {
+  .jumbotron
+  {
+  	background:url('/media/images/canteen.jpg') no-repeat 0 50%;
+  	height:853px;
+  	width:1280px;
+  	margin:auto;
+  	box-shadow: 0 0 50px #3F0C1F;
+  	border:2px solid #3F0C1F;
+  }
+}
+    </style>
+    <title>cafe</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+         <div class="navbar-header">    
+        <a class="navbar-brand" href="#"><img src="/media/images/jecrc_image.jpg" id="logo-img" alt=""></a>
+        <a class="navbar-brand" href="#">
+            <h1>JECRC CAFETERIA</h1>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-list" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+            
+        </button>
+         </div>
+        <div class="collapse navbar-collapse" id="nav-list">
+            <ul id="nav-list" class="navbar-nav mt-2 mt-lg-0 ml-auto">
+                <li class="nav-item active mr-auto">
+                    <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu/">Menu</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="/menu/feedback/">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method='get' action='/menu/search/'>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body"
+                data-toggle="popover" data-placement="bottom" data-html="true"
+                data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+
+
+                Cart(<span id="cart">0</span>)
+            </button>
+
+        </div>
+     </div>
+    </nav>
+    <div id="main-content" class="container-fluid">
+        <div >
+            <img src="/media/images/canteen.jpg" class="img-responsive visible-xs" height="662" width="1491">
+
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

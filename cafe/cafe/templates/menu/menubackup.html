@@ -1,0 +1,196 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #logo-img {
+            width: 90px;
+            height: 90px;
+            background-size: 105px 105px;
+            margin: 10px 15px 10px 0px;
+            border-radius: 1100px;
+            border: 3px solid green;
+
+        }
+
+        .navbar-brand h1 {
+            font-family: 'lora', serif;
+            color: #557c3e;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #222;
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: .75;
+            padding-top: 10px;
+        }
+
+        #nav-list {
+            margin-top: 10px;
+        }
+
+        #nav-list a {
+            color: #951C49;
+            text-align: center;
+            font-size: 1.2em;
+            margin-right: 18px;
+        }
+
+        #nav-list a:hover,
+        #nav-list li:hover {
+            background-color: #E7E7E7;
+        }
+
+
+        /* MENU CATEGORIES PAGE */
+
+        .category-tile {
+            position: relative;
+            border: 2px solid #3F0C1F;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 15px;
+        }
+
+        .category-tile span {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            background-color: #000;
+            color: #fff;
+            opacity: .8;
+        }
+
+        .category-tile:hover {
+            box-shadow: 0 1px 5px 1px #cccccc;
+        }
+
+        #menu-categories-title+div {
+            margin-bottom: 50px;
+        }
+
+        /* END MENU CATEGORIES PAGE */
+    </style>
+    <title>cafe</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="/media/images/jecrc_image.jpg" id="logo-img" alt=""></a>
+        <a class="navbar-brand" href="#">
+            <h1>JECRC CAFETERIA</h1>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul id="nav-list" class="navbar-nav mt-2 mt-lg-0 ml-auto">
+                <li class="nav-item active mr-auto">
+                    <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="/menu/feedback/">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method='POST' action='/menu/search/'>
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body"
+                data-toggle="popover" data-placement="bottom" data-html="true"
+                data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+
+
+                Cart(<span id="cart">0</span>)
+            </button>
+
+        </div>
+    </nav>
+    <div id="main-content" class="container">
+        <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
+        <div class="text-center">
+            Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a
+            quart.
+        </div>
+        
+        <section class="row">
+            {% for product in allProds %}
+            
+            <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
+                <a href="{{ product.0.category }}/">
+                    <div class="category-tile">
+                        <img width="200" height="200" src='/media/{{ product.0.image}}' alt="Lunch">
+                        <span>{{ product.0.category }}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            
+        </section>
+
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<section class="row">
+    {% for product,ratings in allProds %}
+    
+    <div class=" col-lg-4 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
+        <a href="#">
+            <div class="category-tile">
+                <img width="200" height="200" src='/media/{{ product.0.image}}' alt="Lunch">
+                <span>{{ ratings }}</span>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+</section>
+
